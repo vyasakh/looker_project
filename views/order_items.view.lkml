@@ -33,6 +33,11 @@ view: order_items {
     ]
     sql: ${TABLE}.returned_at ;;
   }
+  dimension: test {
+    type: date
+
+    sql: ${TABLE}.returned_at ;;
+  }
 
   dimension: sale_price {
     type: number
