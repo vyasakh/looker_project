@@ -2,8 +2,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view"
-include: "//vysakh_import/views/flights.view.lkml"
-include: "//vysakh_import/views/products.view.lkml"
+
 
 datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -24,8 +23,7 @@ explore: events {
 
 
 
-explore: flights {}
-explore: products {}
+
 
 explore: order_items {
   join: orders {

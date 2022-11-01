@@ -1,9 +1,4 @@
-
-
-project_name: "0_vysakh_thelook"
-
 remote_dependency: test {
   url: "https://github.com/vyasakh/import"
-  ref: "master"
-
+  ref: "058886ee5d75653def8169f065853e4b6a642259"
 }
