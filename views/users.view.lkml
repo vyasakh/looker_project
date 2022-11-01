@@ -73,6 +73,12 @@ view: users {
     drill_fields: [detail*]
   }
 
+  measure: countsss {
+    type: number
+    sql: 0 ;;
+    drill_fields: [detail*]
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
