@@ -20,7 +20,13 @@ view: orders {
       year
     ]
     sql: ${TABLE}.created_at ;;
+
   }
+  dimension: date_formatted {
+    sql: ${created_date} ;;
+    html:{{ rendered_value | date: "%m %d, %y" }};;
+    }
+
 
   dimension: status {
     type: string
