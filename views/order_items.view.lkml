@@ -33,7 +33,12 @@ view: order_items {
     ]
     sql: ${TABLE}.returned_at ;;
   }
+  dimension: date_format {
 
+    type: string
+
+    sql: to_char(${TABLE}.created_at, 'MM/DD/YYYY') ;;
+    }
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;

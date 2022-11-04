@@ -1,5 +1,5 @@
 view: employees {
-  sql_table_name: demo_db.Employees ;;
+  #sql_table_name: demo_db.Employees ;;
 
   dimension: emp_id {
     type: number

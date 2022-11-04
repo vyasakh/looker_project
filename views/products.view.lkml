@@ -16,6 +16,7 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    drill_fields: [department]
   }
 
   dimension: department {
