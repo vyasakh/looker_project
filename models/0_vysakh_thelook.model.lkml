@@ -3,6 +3,7 @@ connection: "thelook"
 # include all the views
 include: "/views/**/*.view"
 
+include: "//test/views/flights.view.lkml"
 datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -23,9 +24,8 @@ explore: events {
   }
 }
 
-
-
 explore: flights {}
+
 
 
 explore: order_items {
@@ -47,9 +47,10 @@ explore: order_items {
     relationship: many_to_one
   }
 
-  join: products {
+  join: productsfirst {
     type: left_outer
-    sql_on: ${inventory_items.product_id} = ${products.id} ;;
+    sql_on: ${inventory_items.product_id} = ${productsfirst.id} ;;
     relationship: many_to_one
   }
+
 }
