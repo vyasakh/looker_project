@@ -32,6 +32,7 @@ view: order_items {
       year
     ]
     sql: ${TABLE}.returned_at ;;
+
   }
 
 

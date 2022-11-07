@@ -16,15 +16,19 @@ view: orders {
       date,
       week,
       month,
+      month_name,
       quarter,
+      quarter_of_year,
       year
     ]
     sql: ${TABLE}.created_at ;;
+    #html: {{ rendered_value | date: "%B %Y" }};;
 
   }
   dimension: date_formatted {
     sql: ${created_date} ;;
-    html:{{ rendered_value | date: "%m %d, %y" }};;
+    html:{{ rendered_value | date: "%m/%d/%Y" }};;
+
     }
 
 
