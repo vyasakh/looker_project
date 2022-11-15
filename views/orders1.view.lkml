@@ -26,7 +26,21 @@ view: orders {
     type: string
     sql: ${TABLE}.status ;;
   }
-
+  dimension: project {
+    type: string
+    sql: case when ${status}='cancelled' then 'can'
+               when ${status}='complete' then 'com'
+              when ${status}='pending' then 'pen' end;;
+  }
+  parameter: dynamic_project {
+    type: string
+    suggest_dimension: project
+    default_value: "can"
+  }
+  dimension: project_sub {
+    type: string
+    sql: case when ${project}={%parameter dynamic_project%} then 'true' end ;;
+  }
   dimension: user_id {
     type: number
     # hidden: yes

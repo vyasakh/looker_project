@@ -4,6 +4,14 @@ connection: "thelook"
 include: "/views/**/*.view"
 
 include: "//test/views/flights.view.lkml"
+
+
+
+
+
+
+
+
 datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -51,3 +59,4 @@ explore: order_items {
   }
 
 }
+explore: orders {}
