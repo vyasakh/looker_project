@@ -1,4 +1,7 @@
+
+include: "/views/orders.view.lkml"
 view: users {
+
   sql_table_name: demo_db.users ;;
   drill_fields: [id]
 
@@ -66,6 +69,12 @@ view: users {
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
+  }
+
+  dimension: required {
+    sql: ${id};;
+    #html: <a href="{{ row['websites.url'] }}" target="_new">{{ value }}</a> ;;
+    required_fields: [orders.status]
   }
 
   measure: count {

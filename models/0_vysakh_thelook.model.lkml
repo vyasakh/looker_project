@@ -3,24 +3,20 @@ connection: "thelook"
 # include all the views
 include: "/views/**/*.view"
 
-
+include: "//test/views/flights.view.lkml"
 datagroup: 0_vysakh_thelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
+
+
 persist_with: 0_vysakh_thelook_default_datagroup
 
-
-
-explore: events {
-  join: users {
-    type: left_outer
-    sql_on: ${events.user_id} = ${users.id} ;;
-    relationship: many_to_one
-  }
+datagroup: updt_datagroup {
+  max_cache_age: "24 hours"
+  interval_trigger: "12 hours"
 }
-
 
 
 

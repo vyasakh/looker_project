@@ -1,3 +1,4 @@
+include: "/views/users.view.lkml"
 view: productsfirst {
   sql_table_name: demo_db.products ;;
   drill_fields: [id]
@@ -46,5 +47,16 @@ view: productsfirst {
   measure: count {
     type: count
     drill_fields: [id, item_name, inventory_items.count]
+  }
+
+  measure: test {
+    type: number
+    sql: ${retail_price} ;;
+    label: "tes"
+    drill_fields: [id, item_name, inventory_items.count]
+    value_format_name: decimal_0
+    html: count: {{rendered_value}} | Other count: {{users.count.rendered_value}};;
+
+
   }
 }

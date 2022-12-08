@@ -33,6 +33,12 @@ view: order_items {
     ]
     sql: ${TABLE}.returned_at ;;
   }
+
+
+  dimension: times {
+    type: date
+    sql: date_format(${TABLE}.returned_at,'%H:%i') ;;
+  }
   dimension: test {
     type: date
 
@@ -44,8 +50,21 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+
+
+
   measure: count {
     type: count
-    drill_fields: [id, orders.id, inventory_items.id]
+    drill_fields: [id, order_id, inventory_item_id]
+    link: {
+      label: "Order_count"
+      url: "{{link}}&pivots=order_items.id"
+    }
+  }
+
+  measure: testsss {
+    type: number
+    sql: ${count} ;;
+    html: Count:{{rendered_value}}| other Count: {{order_items.count._rendered_value}} ;;
   }
 }
