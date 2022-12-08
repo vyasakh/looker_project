@@ -18,7 +18,7 @@ datagroup: updt_datagroup {
   interval_trigger: "12 hours"
 }
 
-
+explore: flights {}
 
 
 explore: order_items {
