@@ -98,7 +98,10 @@ view: flights {
     type: number
     sql: ${TABLE}.taxi_out ;;
   }
-
+  measure:  test{
+    type: number
+    sql: ${count}*1.1 ;;
+  }
   measure: count {
     type: count
     drill_fields: []

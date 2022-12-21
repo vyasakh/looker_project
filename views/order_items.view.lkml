@@ -42,5 +42,11 @@ view: order_items {
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
+    value_format: "\"€\"0"
+  }
+  measure: count1 {
+    type: number
+    sql: ${count}*100-300000 ;;
+    value_format: "€#,##0.00"
   }
 }
